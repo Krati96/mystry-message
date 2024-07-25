@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Form, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 import { signUpSchema } from '@/schemas/signUpSchema'
 import Email from 'next-auth/providers/email'
 import { ApiResponse } from '@/types/ApiResponse'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
@@ -106,8 +106,8 @@ const page=()=> {
                     />
                   </FormControl>
                   {isCheckingUsername && <Loader2 className='animate-spin' />}
-                  <p className={`text-sm ${usernameMessage === "Username is unique" ? 'text-green-500' : 'text-red-500'}`}>
-                    test {usernameMessage}
+                  <p className={`text-sm ${usernameMessage == "Username is unique" ? 'text-green-500' : 'text-red-500'}`}>
+                    {usernameMessage}
                     </p>
                  <FormMessage />
                 </FormItem>
