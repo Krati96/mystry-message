@@ -89,3 +89,16 @@ function countingSort(arr) {
 const arr = [1, 1, 3, 2, 1];
 const sortedArr = countingSort(arr);
 console.log(sortedArr); // Output: [1, 1, 1, 2, 3]
+
+//Here hoisting concepts are introduced
+function foo() {
+    employeeId(); // Function call before product is initialized
+    var product = 'Car'; // Variable declaration and initialization
+    return;
+
+    function employeeId() {
+        console.log(product); // Logs the value of product
+    }
+}
+foo(); // Invoke the function foo  
+//output:undefined
